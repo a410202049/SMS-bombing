@@ -2,15 +2,16 @@
 import time
 from selenium import webdriver
 
+
 class Bomber(object):
     def __init__(self, phone):
         self.phone = phone
         self.options = webdriver.FirefoxOptions()
-        self.options.add_argument('--headless') # 后台模式
+        self.options.add_argument('--headless')  # 后台模式
 
     # 百度
     def func0(self):
-        browser = webdriver.Firefox(firefox_options=self.options)
+        browser = webdriver.Firefox(firefox_options=self.options, executable_path="./geckodriver")
         browser.implicitly_wait(8)
         browser.get('https://www.baidu.com/')
         browser.find_element_by_xpath('//*[@id="u1"]/a[7]').click()
@@ -22,7 +23,7 @@ class Bomber(object):
 
     # 1号店
     def func1(self):
-        browser = webdriver.Firefox(firefox_options=self.options)
+        browser = webdriver.Firefox(firefox_options=self.options, executable_path="./geckodriver")
         browser.implicitly_wait(8)
         browser.get('https://passport.yhd.com/passport/register_input.do')
         browser.find_element_by_xpath('//*[@id="userName"]').send_keys('helloworld998')
